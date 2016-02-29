@@ -3,7 +3,8 @@ There's apparently a special art to combining Android, Akka, Scala, and Gradle (
   
 Import a new project with IntelliJ. Select "Import project from external model...Gradle". Use default wrapper. Finish.
 
-Special thanks to...
+Special thanks to...  
+
 https://github.com/potatoker/akka-on-android  
 https://github.com/saturday06/gradle-android-scala-plugin  
 https://github.com/cdsap/Scala-with-Gradle  
