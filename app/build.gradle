@@ -1,0 +1,61 @@
+
+apply plugin: 'com.android.application'
+apply plugin: 'jp.leafytree.android-scala'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+
+    // Much thanks to...
+    // https://github.com/potatoker/akka-on-android
+    dexOptions {
+        preDexLibraries false
+        javaMaxHeapSize "2g"
+    }
+
+
+    buildTypes {
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    
+}
+
+
+
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    //compile group: 'com.typesafe.akka', name: 'akka-actor_2.11', version: '2.4.2-RC1'
+    //compile "com.typesafe.akka:akka-actor_2.11:2.4.2-RC1" // causes error that 2.11:2.3.9 does not
+
+    compile "com.android.support:multidex:1.0.1"
+    compile 'com.typesafe.akka:akka-actor_2.11:2.3.9'
+    //compile 'com.typesafe.akka:akka-remote_2.11:2.3.9'
+    compile "org.scala-lang:scala-library:2.11.7"
+}
+
+
+//shadowJar {
+//    transform(com.github.jengelman.gradle.plugins.shadow.transformers.AppendingTransformer) {
+//        resource = 'reference.conf'
+//    }
+//}
+
